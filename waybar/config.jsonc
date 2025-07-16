@@ -33,13 +33,37 @@
 
 
   "modules-center": [
-    "custom/spotify", "custom/back", "custom/play", "custom/next", "mpris", 
-    "custom/vol_dec", "custom/vol_inc", "pulseaudio",
-    "hyprland/workspaces"
+    "custom/spotify_icon", "custom/back", "custom/next", 
+    "custom/mpris_absent", "mpris", 
+    "custom/vol_dec", "custom/vol_inc", "pulseaudio"
   ],
+  "custom/spotify_icon": {
+    "format": " ",
+    "tooltip-format": "Spotify",
+    "on-click": "spotify"
+  },
+  "custom/back": {
+    "exec": "~/.config/waybar/scripts/spotify_back.sh",
+    "return-type": "json",
+    "interval": 3,
+    "on-click": "~/.config/waybar/scripts/spotify_back_onclick.sh"
+  },
+  "custom/next": {
+    "exec": "~/.config/waybar/scripts/spotify_next.sh",
+    "return-type": "json",
+    "interval": 3,
+    "on-click": "~/.config/waybar/scripts/spotify_next_onclick.sh"
+  },
+  "custom/mpris_absent": {
+    "exec": "~/.config/waybar/scripts/mpris_absent.sh",
+    "return-type": "json"
+  },
   "mpris": {
-    "format": "{title}",
-    "max-length": 20
+    "format-playing": "{title} [{position}/{length}] (Playing)",
+    "format-paused": "{title} [{position}/{length}] (Paused)",
+    "format-stopped": "Not playing anything",
+    "ignore-playerless": false,
+    "max-length": 45
   },
   "custom/vol_dec": {
     "format": "\udb81\udf5e",
@@ -57,6 +81,7 @@
 
 
   "modules-right": [
+    "hyprland/workspaces",
     "custom/ram_icon", "custom/memory",
     "custom/network_state", "network",
     "custom/battery_state", "battery", 
@@ -67,12 +92,12 @@
     "tooltip-format": "RAM Percentage"
   },
   "custom/memory": {
-    "exec": "/home/guest/.config/waybar/scripts/memory.sh",
+    "exec": "~/.config/waybar/scripts/memory.sh",
     "return-type": "json",
     "interval": 1
   },
   "custom/network_state": {
-    "exec": "/home/guest/.config/waybar/scripts/network_state.sh",
+    "exec": "~/.config/waybar/scripts/network_state.sh",
     "return-type": "json",
     "interval": 10
   },
@@ -83,7 +108,7 @@
     "interval": 1
   },
   "custom/battery_state": {
-    "exec": "/home/guest/.config/waybar/scripts/battery_state.sh",
+    "exec": "~/.config/waybar/scripts/battery_state.sh",
     "return-type": "json",
     "interval": 5
   },

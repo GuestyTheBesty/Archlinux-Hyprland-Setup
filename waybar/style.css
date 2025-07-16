@@ -26,17 +26,18 @@ window {
     color: #1d63be;
 }
 
-
-#custom-notification_icon {background-image: url("/home/guest/.config/waybar/icons/notification.png");}
-#custom-terminal_icon {background-image: url("/home/guest/.config/waybar/icons/terminal.png");}
-#custom-file_manager_icon {background-image: url("/home/guest/.config/waybar/icons/file_manager.svg");}
-#custom-browser_icon {background-image: url("/home/guest/.config/waybar/icons/firefox.png");}
-#custom-ram_icon {background-image: url("/home/guest/.config/waybar/icons/ram.png");}
+#custom-notification_icon {background-image: url("./icons/notification.png");}
+#custom-terminal_icon {background-image: url("./icons/terminal.png");}
+#custom-file_manager_icon {background-image: url("./icons/file_manager.svg");}
+#custom-browser_icon {background-image: url("./icons/firefox.png");}
+#custom-spotify_icon {background-image: url("./icons/spotify.png")}
+#custom-ram_icon {background-image: url("./icons/ram.png");}
 
 #custom-notification_icon,
 #custom-terminal_icon,
 #custom-file_manager_icon,
 #custom-browser_icon,
+#custom-spotify_icon,
 #custom-ram_icon {
     background-position: center;
     background-repeat: no-repeat;
@@ -53,10 +54,13 @@ window {
 #custom-notification_icon:hover, 
 #custom-terminal_icon:hover, 
 #custom-file_manager_icon:hover,
-#custom-browser_icon:hover {
+#custom-browser_icon:hover,
+#custom-spotify_icon:hover {
     background-color: #e2e2e2;  
 }
 
+#custom-back.active,
+#custom-next.active,
 #custom-vol_dec,
 #custom-vol_inc {
     color: #f8f8f8;
@@ -65,15 +69,23 @@ window {
     transition: background-color .5s ease;
 }
 
+#custom-back.inactive,
+#custom-next.inactive {
+    color: #888;
+    font-size: 20px;
+    min-width: 30px;
+    transition: background-color .5s ease;
+}
+
 #pulseaudio {transition: background-color .5s ease}
 
+#custom-back:hover,
+#custom-next:hover,
 #pulseaudio:hover,
 #custom-vol_dec:hover,
 #custom-vol_inc:hover {
-    background-color: #366369;
+    background-color: #4c848b;
 }
-
-
 
 #custom-network_state {
     color: #f8f8f8;
@@ -98,9 +110,12 @@ window {
 #custom-battery_state.GE0 {color: #ce0808;}
 
 #pulseaudio {padding-left: 5px; padding-right: 5px;}
+#custom-ram_icon {margin-left: 10px;}
 #custom-battery_state {margin-left: 15px;}
 #clock {margin-left: 10px;}
 
+#custom-mpris_absent,
+#mpris,
 #pulseaudio,
 #battery,
 #network,
