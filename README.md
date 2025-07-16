@@ -1,1 +1,3 @@
-# Archlinux-Hyprland-Setup
+# Archlinux-Hyprland-
+
+hi

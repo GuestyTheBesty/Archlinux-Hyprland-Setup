@@ -1,0 +1,118 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: monospace;
+}
+window {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid #c794cf;
+}
+
+#workspaces button {
+    background: none;
+    color: #aaaaaa;
+    border-left: 1px solid #118ed6;
+    box-shadow: inset 0 -1px #c794cf;
+    transition: background-color 1s ease, color .5s ease;
+}
+#workspaces button:last-child {
+    border-right: 1px solid #118ed6;
+}
+#workspaces button.active {
+    color: black;
+    background-color: #e2e2e2;
+}
+#workspaces button:hover {
+    color: #1d63be;
+}
+
+
+#custom-notification_icon {background-image: url("/home/guest/.config/waybar/icons/notification.png");}
+#custom-terminal_icon {background-image: url("/home/guest/.config/waybar/icons/terminal.png");}
+#custom-file_manager_icon {background-image: url("/home/guest/.config/waybar/icons/file_manager.svg");}
+#custom-browser_icon {background-image: url("/home/guest/.config/waybar/icons/firefox.png");}
+#custom-ram_icon {background-image: url("/home/guest/.config/waybar/icons/ram.png");}
+
+#custom-notification_icon,
+#custom-terminal_icon,
+#custom-file_manager_icon,
+#custom-browser_icon,
+#custom-ram_icon {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-origin: content-box;
+    min-width: 22px;
+    padding-left: 10px;
+    padding-right: 10px;
+    transition: background-color 1s ease;
+}
+
+#custom-ram_icon {padding-right: 3px;}
+
+#custom-notification_icon:hover, 
+#custom-terminal_icon:hover, 
+#custom-file_manager_icon:hover,
+#custom-browser_icon:hover {
+    background-color: #e2e2e2;  
+}
+
+#custom-vol_dec,
+#custom-vol_inc {
+    color: #f8f8f8;
+    font-size: 20px;
+    min-width: 30px;
+    transition: background-color .5s ease;
+}
+
+#pulseaudio {transition: background-color .5s ease}
+
+#pulseaudio:hover,
+#custom-vol_dec:hover,
+#custom-vol_inc:hover {
+    background-color: #366369;
+}
+
+
+
+#custom-network_state {
+    color: #f8f8f8;
+    min-width: 20px;
+    margin-right: 3px;
+    margin-left: 10px;
+}
+
+#custom-memory.Critical {color: #da2020}
+#custom-memory.Warning {color: #e49c30}
+#custom-memory.Sufficient {color: #88c736}
+#custom-memory.Abundant {color: #23ac23}
+
+#custom-battery_state.Charging {animation: charging 1s infinite ease-in}
+#custom-battery_state.GE100 {color: #15d11e;}
+#custom-battery_state.GE90 {color: #46ce24;}
+#custom-battery_state.GE70 {color: #68a537;}
+#custom-battery_state.GE50 {color: #b3e725;}
+#custom-battery_state.GE30 {color: #e9b91c;}
+#custom-battery_state.GE20 {color: #caab20;}
+#custom-battery_state.GE10 {color: #d14e1b;}
+#custom-battery_state.GE0 {color: #ce0808;}
+
+#pulseaudio {padding-left: 5px; padding-right: 5px;}
+#custom-battery_state {margin-left: 15px;}
+#clock {margin-left: 10px;}
+
+#pulseaudio,
+#battery,
+#network,
+#custom-battery,
+#clock {
+    color: #f8f8f8;
+}
+
+@keyframes charging {
+    0% {color: #c0c07c;}
+    25% {color: orange;}
+    50% {color: yellow;}
+    75% {color: orange;}
+    100% {color: #c0c07c;}
+}

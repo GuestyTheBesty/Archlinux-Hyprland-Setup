@@ -1,0 +1,99 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 24,
+  "spacing": 0,
+
+  "modules-left": [
+    "custom/notification_icon",
+    "custom/terminal_icon", 
+    "custom/file_manager_icon",
+    "custom/browser_icon"
+  ], 
+  "custom/notification_icon": {
+    "format": " ",
+    "on-click": "swaync-client -t",
+    "tooltip-format": "Notifications"
+  }, 
+  "custom/terminal_icon": {
+    "format": " ",
+    "on-click": "kitty",
+    "tooltip-format": "Terminal"
+  }, 
+  "custom/file_manager_icon": {
+    "format": " ",
+    "on-click": "dolphin",
+    "tooltip-format": "File Manager"
+  },
+  "custom/browser_icon": {
+    "format": " ",
+    "tooltip-format": "Firefox",
+    "on-click": "firefox"
+  },
+
+
+  "modules-center": [
+    "custom/spotify", "custom/back", "custom/play", "custom/next", "mpris", 
+    "custom/vol_dec", "custom/vol_inc", "pulseaudio",
+    "hyprland/workspaces"
+  ],
+  "mpris": {
+    "format": "{title}",
+    "max-length": 20
+  },
+  "custom/vol_dec": {
+    "format": "\udb81\udf5e",
+    "on-click": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+  },
+  "custom/vol_inc": {
+    "format": "\udb81\udf5d",
+    "on-click": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
+  },
+  "pulseaudio": {
+    "format": "{volume}%",
+    "format-muted": "{volume}%(Muted)",
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+  },
+
+
+  "modules-right": [
+    "custom/ram_icon", "custom/memory",
+    "custom/network_state", "network",
+    "custom/battery_state", "battery", 
+    "clock"
+  ],
+  "custom/ram_icon": {
+    "format": " ",
+    "tooltip-format": "RAM Percentage"
+  },
+  "custom/memory": {
+    "exec": "/home/guest/.config/waybar/scripts/memory.sh",
+    "return-type": "json",
+    "interval": 1
+  },
+  "custom/network_state": {
+    "exec": "/home/guest/.config/waybar/scripts/network_state.sh",
+    "return-type": "json",
+    "interval": 10
+  },
+  "network": {
+    "format": "{essid}",
+    "max-length": 10,
+    "tooltip-format": "Signal Strength: {signalStrength}%\nDownload: {bandwidthDownBytes}\nUpload: {bandwidthUpBytes}",
+    "interval": 1
+  },
+  "custom/battery_state": {
+    "exec": "/home/guest/.config/waybar/scripts/battery_state.sh",
+    "return-type": "json",
+    "interval": 5
+  },
+  "battery": {
+    "format": "{capacity}%",
+    "interval": 5
+  }, 
+  "clock": {
+    "format": "{:%m/%d/%Y %H:%M}",
+    "tooltip-format": "{:%S seconds}",
+    "interval": 1
+  }
+}
