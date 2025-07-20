@@ -34,6 +34,9 @@ Configuration: /etc/greetd/config.toml
 
 Configuration: ~/.config/hypr/hyprland.conf
 
+## Terminal: *kitty*
+1. sudo pacman -S kitty
+
 ## Brightness: *brightnessctl*
 1. sudo pacman -S brightnessctl
 
