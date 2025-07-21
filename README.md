@@ -35,6 +35,10 @@ Configuration: /etc/greetd/config.toml
 Configuration: ~/.config/hypr/hyprland.conf
 
 
+## Application Launcher: *wofi*
+1. `sudo pacman -S wofi`
+
+
 ## Terminal: *kitty*
 1. `sudo pacman -S kitty`
 
@@ -43,15 +47,17 @@ Configuration: ~/.config/hypr/hyprland.conf
 1. `sudo pacman -S brightnessctl`
 
 
-## Audio: *pipewire*
-
-
 ## Wallpaper: *swww*
 1. `sudo pacman -S swwww`
 2. Enter ~/Scripts/alternate_wallpaper.sh and properly set your Wallpaper folder location
 
 
-## Status Bar: *Waybar*
+## Audio: *pipewire*
+1. `sudo pacman -S pipewire pipewire-alsa pipewire-pulse wireplumber`
+2. `systemctl --user enable pipewire pipewire-pulse wireplumber`
+
+
+## Status Bar: *waybar*
 1. `sudo pacman -S waybar`
 
 Configuration: ~/.config/waybar/config, ~/.config/waybar/style.css
