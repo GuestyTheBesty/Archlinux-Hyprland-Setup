@@ -61,3 +61,4 @@ Configuration: ~/.config/waybar/config, ~/.config/waybar/style.css
 1. `sudo pacman -S swaync`
 
 Configuration: ~/.config/swaync/config.json, ~/.config/swaync/style.css
+Credit: I got it from somewhere, I forgot :D
