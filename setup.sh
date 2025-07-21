@@ -1,6 +1,6 @@
 #/bin/bash
 
-packages={
+packages=(
     git
     base-devel
     hyprland
@@ -18,7 +18,7 @@ packages={
     dolphin
     firefox
     code
-}
+)
 
 sudo pacman -S --noconfirm "${packages[@]}"
 
@@ -27,8 +27,9 @@ cd yay
 makepkg -si --noconfirm
 rm -rf yay
 
-yay -S spotify
+yay -S spotify --mflags="-C"
 
+mkdir -p ~/.config/hypr ~/Scripts ~/.config/greetd ~/.config/waybar ~/.config/swaync ~/.config/wofi
 cp -r ./hyprland ~/.config/hypr
 cp -r ./Scripts ~/Scripts
 cp -r ./greetd-tuigreet ~/.config/greetd
@@ -36,5 +37,5 @@ cp -r ./waybar ~/.config/waybar
 cp -r ./swaync ~/.config/swaync
 cp -r ./wofi ~/.config/wofi
 
-systemctl --user enable pipewire pipewire-pulse wireplumber
-systemctl enable greetd
+sudo systemctl --user enable pipewire pipewire-pulse wireplumber
+sudo systemctl enable greetd
