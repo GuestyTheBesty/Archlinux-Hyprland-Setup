@@ -28,7 +28,7 @@ makepkg -si --noconfirm
 rm -rf yay
 cd ..
 
-yay -S spotify --mflags="-C"
+yay -S spotify
 
 LOCATION=$(pwd)
 mkdir -p ~/.config/hypr ~/Scripts ~/.config/greetd ~/.config/waybar ~/.config/swaync ~/.config/wofi
