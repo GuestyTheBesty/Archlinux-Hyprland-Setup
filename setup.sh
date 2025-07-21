@@ -29,13 +29,14 @@ rm -rf yay
 
 yay -S spotify --mflags="-C"
 
+LOCATION=$(pwd)
 mkdir -p ~/.config/hypr ~/Scripts ~/.config/greetd ~/.config/waybar ~/.config/swaync ~/.config/wofi
-cp -r ./hyprland ~/.config/hypr
-cp -r ./Scripts ~/Scripts
-cp -r ./greetd-tuigreet ~/.config/greetd
-cp -r ./waybar ~/.config/waybar
-cp -r ./swaync ~/.config/swaync
-cp -r ./wofi ~/.config/wofi
+cp -r $LOCATION/hyprland ~/.config/hypr
+cp -r $LOCATION/Scripts ~/Scripts
+cp -r $LOCATION/greetd-tuigreet ~/.config/greetd
+cp -r $LOCATION/waybar ~/.config/waybar
+cp -r $LOCATION/swaync ~/.config/swaync
+cp -r $LOCATION/wofi ~/.config/wofi
 
 sudo systemctl --user enable pipewire pipewire-pulse wireplumber
 sudo systemctl enable greetd
