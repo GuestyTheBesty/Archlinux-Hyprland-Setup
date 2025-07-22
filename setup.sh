@@ -18,6 +18,9 @@ packages=(
     dolphin
     firefox
     code
+    curl
+    zip
+    unzip
 )
 
 sudo pacman -S --noconfirm "${packages[@]}"
@@ -42,4 +45,12 @@ cp -r $LOCATION/wofi/* ~/.config/wofi
 sudo systemctl --user enable pipewire pipewire-pulse wireplumber
 sudo systemctl enable greetd
 
-reboot
+curl -LO https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip
+
+mkdir ~/.local/share/fonts
+unzip JetBrainsMono.zip -d ~/.local/share/fonts
+rm JetBrainsMono.zip
+fc-cache -fv
+
+echo "Reboot [y/n]: "
+read ans

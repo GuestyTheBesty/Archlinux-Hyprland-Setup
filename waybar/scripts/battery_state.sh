@@ -1,7 +1,10 @@
 #!/bin/bash
 
-CAPACITY=$(cat /sys/class/power_supply/BAT0/capacity)
-STATUS=$(cat /sys/class/power_supply/BAT0/status)
+# Change it to your battery
+BATTERY="BAT0"
+
+CAPACITY=$(cat /sys/class/power_supply/$BATTERY/capacity)
+STATUS=$(cat /sys/class/power_supply/$BATTERY/status)
 
 STATE=""
 CLASS=""

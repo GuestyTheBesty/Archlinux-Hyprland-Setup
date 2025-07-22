@@ -7,11 +7,10 @@
 2. On a user (not root)
 
 
-## Network: *networkmanager*
+## Network: *iwd*
 *(Install it within the arch installation else you won't have internet to install other things)*  
-1. `pacman -S networkmanager`
-2. `systemctl enable NetworkManager`
-3. `nmcli device wifi connect "name" --ask`
+1. `pacman -S iwd`
+2. `systemctl enable iwd`
 
 
 ## Package Manager Helper: *yay*
