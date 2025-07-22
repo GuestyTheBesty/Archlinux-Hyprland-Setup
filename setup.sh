@@ -34,7 +34,7 @@ LOCATION=$(pwd)
 mkdir -p ~/.config/hypr ~/Scripts ~/.config/waybar ~/.config/swaync ~/.config/wofi
 cp -r $LOCATION/hypr/* ~/.config/hypr
 cp -r $LOCATION/Scripts/* ~/Scripts
-cp -r $LOCATION/greetd-tuigreet/* /etc/greetd
+sudo cp -r $LOCATION/greetd-tuigreet/* /etc/greetd
 cp -r $LOCATION/waybar/* ~/.config/waybar
 cp -r $LOCATION/swaync/* ~/.config/swaync
 cp -r $LOCATION/wofi/* ~/.config/wofi
