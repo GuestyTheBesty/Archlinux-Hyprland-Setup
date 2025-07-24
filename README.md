@@ -11,17 +11,17 @@
 3. `grub-mkconfig -o /boot/grub/grub.cfg`
 
 ## Network
-### Wifi: *iwd + dhcpcd*
+### Wifi: *iwd*
 *(Within arch installation)*  
-1. `pacman -S iwd dhcpcd`
+1. `pacman -S iwd`
 
 *(Inside arch system)*
 
 2. `echo -e "[General]\nEnableNetworkConfiguration=true\n\n[Network]\nNameResolvingService=systemd" > /etc/iwd/main.conf`
-3. `systemctl enable --now iwd`
-4. `systemctl enable --now systemd-resolved`
+3. `systemctl enable --now systemd-resolved`
+4. `ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf`
+5. `systemctl enable --now iwd`
 4. Connect to wifi using `iwctl`
-
 
 
 
