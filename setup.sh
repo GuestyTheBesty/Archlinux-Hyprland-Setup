@@ -21,15 +21,15 @@ packages=(
     unzip
 )
 
-sudo pacman -S --noconfirm "${packages[@]}"
+sudo pacman -Sy --noconfirm "${packages[@]}"
 
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si --noconfirm
-# rm -rf yay
+rm -rf yay
 cd ..
 
-yay -S spotify
+yay -S --noconfirm spotify
 
 LOCATION=$(pwd)
 mkdir -p ~/.config/hypr ~/Scripts ~/.config/waybar ~/.config/swaync ~/.config/wofi
@@ -40,7 +40,7 @@ cp -r $LOCATION/waybar/* ~/.config/waybar
 cp -r $LOCATION/swaync/* ~/.config/swaync
 cp -r $LOCATION/wofi/* ~/.config/wofi
 
-sudo systemctl --user enable pipewire pipewire-pulse wireplumber
+systemctl --user enable pipewire pipewire-pulse wireplumber
 sudo systemctl enable greetd
 
 curl -LO https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip
@@ -54,5 +54,5 @@ echo "Reboot [y/n]: "
 read ANS
 
 if [[ "$ANS" == "y" ]]; then
-    reboot
+    sudo reboot
 fi
