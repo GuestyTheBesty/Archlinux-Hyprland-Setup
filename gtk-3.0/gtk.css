@@ -1,0 +1,13 @@
+.popup {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+menuitem {
+  font-family: monospace;
+  color: #47ed89;
+}
+
+menuitem:hover {
+  background-color: #bbec80;
+  color: #383807;
+}

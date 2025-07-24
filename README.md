@@ -30,7 +30,7 @@
 1. `useradd -m -G wheel -s /bin/bash [username]`
 2. `passwd [username]`
 3. Have nano installed and then do `EDITOR=nano visudo`
-4. Uncomment `# %wheel AALL=(ALL:ALL) ALL)` by removing the `#` in the front
+4. Uncomment `# %wheel ALL=(ALL:ALL) ALL)` by removing the `#` in the front
 5. `su [username]`
 6. `cd ~`
 
@@ -39,3 +39,6 @@
 2. `git clone https://github.com/GuestyTheBesty/Archlinux-Hyprland-Setup.git`
 3. `cd Archlinux-Hyprland-Setup`
 4. `./setup.sh`
+
+Go into the configs if there's a bug, such as using a wired connection and seeing the no wifi symbol, or if you want to configure anything you don't like.  
+I also recommend changing the wofi position in the hyprland config.
