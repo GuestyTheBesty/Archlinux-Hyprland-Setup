@@ -1,8 +1,6 @@
 #/bin/bash
 
 packages=(
-    git
-    base-devel
     hyprland
     brightnessctl
     swww
@@ -28,7 +26,7 @@ sudo pacman -S --noconfirm "${packages[@]}"
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si --noconfirm
-rm -rf yay
+# rm -rf yay
 cd ..
 
 yay -S spotify
@@ -47,10 +45,14 @@ sudo systemctl enable greetd
 
 curl -LO https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip
 
-mkdir ~/.local/share/fonts
+mkdir -p ~/.local/share/fonts
 unzip JetBrainsMono.zip -d ~/.local/share/fonts
-rm JetBrainsMono.zip
+# rm JetBrainsMono.zip
 fc-cache -fv
 
 echo "Reboot [y/n]: "
-read ans
+read ANS
+
+if [[ "$ANS" == "y" ]]; then
+    reboot
+fi

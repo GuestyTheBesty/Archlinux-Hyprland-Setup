@@ -1,69 +1,41 @@
 # Archlinux Hyprland Setup
 
-
 ## Expected
-1. Arch Linux running
-3. Sudo installed
-2. On a user (not root)
+1. You know how to get a running arch system
 
 
-## Network: *iwd*
-*(Install it within the arch installation else you won't have internet to install other things)*  
-1. `pacman -S iwd`
-2. `systemctl enable iwd`
+## Boot Loader: *grub + efibootmgr*
+*(Do this within arch installation else your system wouldn't be able to identify any bootable devices and simply not work)*
+1. `pacman -S grub efibootmgr`
+2. `grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB`
+3. `grub-mkconfig -o /boot/grub/grub.cfg`
+
+## Network
+### Wifi: *iwd + dhcpcd*
+*(Within arch installation)*  
+1. `pacman -S iwd dhcpcd`
+
+*(Inside arch system)*
+
+2. `echo -e "[General]\nEnableNetworkConfiguration=true\n\n[Network]\nNameResolvingService=systemd" > /etc/iwd/main.conf`
+3. `systemctl enable --now iwd`
+4. `systemctl enable --now systemd-resolved`
+4. Connect to wifi using `iwctl`
 
 
-## Package Manager Helper: *yay*
+
+
+## Arch System
+### Creating users
+1. `useradd -m -G wheel -s /bin/bash [username]`
+2. `passwd [username]`
+3. Have nano installed and then do `EDITOR=nano visudo`
+4. Uncomment `# %wheel AALL=(ALL:ALL) ALL)` by removing the `#` in the front
+5. `su [username]`
+6. `cd ~`
+
+### Automatic setup
 1. `sudo pacman -S git base-devel`
-2. `git clone https://aur.archlinux.org/yay.git`
-3. `cd yay`
-4. `makepkg -si`
-5. `rm -rf yay` (Optional)
-
-
-## Login Menu: *greetd + tuigreet*
-1. `sudo pacman -S greetd greetd-tuigreet`
-2. `sudo systemctl enable greetd`
-
-Configuration: /etc/greetd/config.toml
-
-
-## Wayland Compositor: *hyprland*
-1. `sudo pacman -S hyprland`
-
-Configuration: ~/.config/hypr/hyprland.conf
-
-
-## Application Launcher: *wofi*
-1. `sudo pacman -S wofi`
-
-
-## Terminal: *kitty*
-1. `sudo pacman -S kitty`
-
-
-## Brightness: *brightnessctl*
-1. `sudo pacman -S brightnessctl`
-
-
-## Wallpaper: *swww*
-1. `sudo pacman -S swwww`
-2. Enter ~/Scripts/alternate_wallpaper.sh and properly set your Wallpaper folder location
-
-
-## Audio: *pipewire*
-1. `sudo pacman -S pipewire pipewire-alsa pipewire-pulse wireplumber`
-2. `systemctl --user enable pipewire pipewire-pulse wireplumber`
-
-
-## Status Bar: *waybar*
-1. `sudo pacman -S waybar`
-
-Configuration: ~/.config/waybar/config, ~/.config/waybar/style.css
-
-
-## Notifications: *swaync*
-1. `sudo pacman -S swaync`
-
-Configuration: ~/.config/swaync/config.json, ~/.config/swaync/style.css
-Credit: I got it from somewhere, I forgot :D
+2. `git clone https://github.com/GuestyTheBesty/Archlinux-Hyprland-Setup.git`
+3. `cd Archlinux-Hyprland-Setup`
+4. `./setup.sh`
